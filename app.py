@@ -10,11 +10,10 @@ server = app.server
 
 # Layout
 app.layout = html.Div([
-    html.H3('Consumer Behaviour', style={
+    html.H1('Consumer Behaviour', style={
         'color': 'black',
         'padding-top': '50px',
         'text-align': 'center',
-        'text-style': 'bold'
     }),
     html.P('Congratulations, you have successfully deployed your first dash app', style={
         'color': 'red',
