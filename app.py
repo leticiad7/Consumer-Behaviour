@@ -1,35 +1,66 @@
-# imports
-from asyncio.base_events import Server
 import dash
 from dash import dcc, html
-from dash.dependencies import Input, Output, State
-#from dash import dcc
+from dash.dependencies import Input, Output
+from matplotlib.pyplot import figure, xlabel
+import pandas as pd
+import plotly.express as px
+
+#Quantity sold by all branches 
+quantity_sold_allbranches = pd.read_csv("data/allbranches_quantity_sold.csv")
+print(quantity_sold_allbranches)
+quantity_sold_allbranches = px.bar(quantity_sold_allbranches, x="Branch", y = "Quantity sold", title = "Quantity sold by all branches")
+
+#Amount in GBP sold by all branches 
+amount_in_gbp_allbranches = pd.read_csv("data/allbranches_amountgbp.csv")
+print(amount_in_gbp_allbranches)
+amount_in_gbp_allbranches = px.bar(amount_in_gbp_allbranches, x="Branch", y = "Amount Sold", title = "Amount in GBP sold by all branches")
+
+#Profitability
+profitability = pd.read_csv("data/profitability.csv")
+print(profitability)
+profitability = px.bar(profitability, x="Branch", y = "Profitability", title = "Profitability")
 
 
-
-# setup
-app = dash.Dash('', title='Consumer Behaviour', external_stylesheets=['static/photon.min.css'])
+app = dash.Dash(__name__, title= "Dashboard")
 server = app.server
 
-#------ import data
-# Region 
-#nyorkshire = pd.read_csv("nyorkshire_updated.csv") - when i uncomment it complains 
-
-# Layout
 app.layout = html.Div([
-    html.H1('Consumer Behaviour'),
     html.Div([
-        html.H4('5 most sold products'),
-        dcc.Graph(id='pie-graph',
-        figure={}, className='top_5'),
+        html.H1("Consumer Behaviour"),
+    ]),
 
-        html.H4('5 least sold products')
+    html.Div([
+        html.H2("Quantity sold by all branches"),
+        html.Div([
+            dcc.Graph(figure= quantity_sold_allbranches)                        
+            ]),
+        ]),
 
-    ])
-    ])
+        html.Div([
+        html.H2("Amount in GBP sold by all branches"),
+        html.Div([
+            dcc.Graph(figure= amount_in_gbp_allbranches)                        
+            ]),
+        ]),
+
+        html.Div([
+        html.H2("Profitability"),
+        html.Div([
+            dcc.Graph(figure= amount_in_gbp_allbranches)                        
+            ]),
+        ]),
+])
+                      
+@app.callback(
+    #Output(component_id="amount_in_gbp_allbranches", component_property="figure"),
+
+    Output(component_id="quantity_sold_allbranches", component_property="figure"),
+    Input(component_id="quantity_sold_allbranches", component_property="value")
+)               
+def plot_quantity_sold_allbranches(value):
+    figure_one = px.bar(quantity_sold_allbranches[quantity_sold_allbranches["Branch"] == value], xlabel= "Branch", y = "Quantity sold")
+    return figure_one
 
 
-
-# run: ensures we dont try to run the app using both gunicorn and flask's in-built server
 if __name__ == '__main__':
     app.run_server(debug=True)
