@@ -28,7 +28,7 @@ app.layout = html.Div([
     html.Div([
         html.H1("Consumer Behaviour"),
     ]),
-
+    
     html.Div([
         html.H2("Quantity sold by all branches"),
         html.Div([
@@ -46,19 +46,20 @@ app.layout = html.Div([
         html.Div([
         html.H2("Profitability"),
         html.Div([
-            dcc.Graph(figure= amount_in_gbp_allbranches)                        
+            dcc.Graph(figure= profitability)                        
             ]),
         ]),
 ])
                       
 @app.callback(
+    #Output(component_id="profitability", component_property="figure"),
     #Output(component_id="amount_in_gbp_allbranches", component_property="figure"),
-
     Output(component_id="quantity_sold_allbranches", component_property="figure"),
     Input(component_id="quantity_sold_allbranches", component_property="value")
 )               
 def plot_quantity_sold_allbranches(value):
     figure_one = px.bar(quantity_sold_allbranches[quantity_sold_allbranches["Branch"] == value], xlabel= "Branch", y = "Quantity sold")
+    #figure_one = px.bar(quantity_sold_allbranches[quantity_sold_allbranches["Branch"] == value], xlabel= "Branch", y = "Quantity sold")
     return figure_one
 
 
