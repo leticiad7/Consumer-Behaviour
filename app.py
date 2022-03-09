@@ -1,8 +1,13 @@
 import dash
 from dash import dcc, html
+import dash_bootstrap_components as dbc
+
 from dash.dependencies import Input, Output
 import pandas as pd
 import plotly.express as px
+
+
+
 
 #Quantity sold by all branches 
 quantity_sold_allbranches = pd.read_csv("data/allbranches_quantity_sold.csv")
@@ -39,7 +44,14 @@ branches = [{"label": "Belfast", "value": "data/branches/belfast.csv"},
             {"label": "New Yorkshire", "value": "data/branches/nyorkshire.csv"},
             {"label": "Orkney", "value": "data/branches/orkney.csv"}]
 
-app = dash.Dash(__name__, title= "Dashboard")
+external_stylesheets = [
+    'https://fonts.googleapis.com/css2?family=Poiret+One&display=swap',
+     dbc.themes.JOURNAL
+]
+
+app = dash.Dash(__name__,  external_stylesheets=external_stylesheets)
+app.css.config.serve_locally = True
+
 server = app.server
 
 app.layout = html.Div([
@@ -90,6 +102,8 @@ app.layout = html.Div([
             dcc.Graph(figure= {}, id="belfast_perhour")                        
             ]),
         ]),
+
+       
 
 ])
 
