@@ -1,7 +1,6 @@
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
-from matplotlib.pyplot import figure, xlabel
 import pandas as pd
 import plotly.express as px
 
