@@ -7,8 +7,6 @@ import pandas as pd
 import plotly.express as px
 
 
-
-
 #Quantity sold by all branches 
 quantity_sold_allbranches = pd.read_csv("data/allbranches_quantity_sold.csv")
 #print(quantity_sold_allbranches)
@@ -45,7 +43,6 @@ branches = [{"label": "Belfast", "value": "data/branches/belfast.csv"},
             {"label": "Orkney", "value": "data/branches/orkney.csv"}]
 
 external_stylesheets = [
-    'https://fonts.googleapis.com/css2?family=Poiret+One&display=swap',
      dbc.themes.JOURNAL
 ]
 
