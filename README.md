@@ -27,10 +27,11 @@ country.
 8. North Yorkshire
 9. Orkney
 
-## Tecnology used: 
+## Technology used: 
 1. Python
 2. Dash
 3. Pandas
 4. Plotly
-5. VS Code 
-6. Github 
+5. Bootstrap
+6. VS Code 
+7. Github 
