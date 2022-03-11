@@ -27,7 +27,7 @@ country.
 8. North Yorkshire
 9. Orkney
 
-## Technology used: 
+## Technologies used: 
 1. Python
 2. Dash
 3. Pandas
