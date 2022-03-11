@@ -8,7 +8,7 @@ This project showcases interactive visualisations generated from a retail store 
 The data has been collected over time from their various branches to understand consumer behaviour in the different regions of the
 country. 
 
-### User stories: 
+## User stories: 
 
 1. As a user, I want to know the most and least sold products per branch
 2. As a user, I want to know the best perfoming branches. 
@@ -16,7 +16,7 @@ country.
 4. As a user, I want to know the most profitable branches.
 
 
-#### Check the data cleaning in the notebooks here: 
+## Check the data cleaning in the notebooks here: 
 1. Belfast
 2. East Cambridgeshire
 3. Flintshire
@@ -27,7 +27,7 @@ country.
 8. North Yorkshire
 9. Orkney
 
-#### Tecnology used: 
+## Tecnology used: 
 1. Python
 2. Dash
 3. Pandas
