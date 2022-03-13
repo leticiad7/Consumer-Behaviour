@@ -16,16 +16,9 @@ country.
 4. As a user, I want to know the most profitable branches.
 
 
-## Check the data cleaning in the notebooks here: 
-1. Belfast
-2. East Cambridgeshire
-3. Flintshire
-4. Forest of Dean
-5. Fylde
-6. Islington 
-7. Lichfield
-8. North Yorkshire
-9. Orkney
+## Data Cleaning repository: 
+https://github.com/leticiaamorimd/consumer-behaviour-data-cleaning
+
 
 ## Technologies used: 
 1. Python
